@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRM Imobiliário</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header>
+    <h1>CRM para Corretora de Imóveis</h1>
+  </header>
+
+  <nav>
+    <button onclick="showSection('leads')">Funil de Vendas</button>
+    <button onclick="showSection('comissoes')">Controle de Comissões</button>
+    <button onclick="showSection('estatisticas')">Estatísticas</button>
+  </nav>
+
+  <main>
+    <!-- FUNIL DE VENDAS -->
+    <section id="leads" class="active">
+      <h2>Leads por Campanha</h2>
+      <form id="leadForm">
+        <input type="text" placeholder="Nome" id="nome" required>
+        <input type="text" placeholder="Telefone" id="telefone" required>
+        <input type="text" placeholder="Campanha" id="campanha" required>
+        <select id="status">
+          <option value="frio">Frio</option>
+          <option value="morno">Morno</option>
+          <option value="quente">Quente</option>
+          <option value="pre-cadastro">Pré-cadastro</option>
+          <option value="reserva">Reserva</option>
+          <option value="venda">Venda</option>
+        </select>
+        <input type="date" id="followup">
+        <button type="submit">Salvar Lead</button>
+      </form>
+      <div id="leadList"></div>
+    </section>
+
+    <!-- COMISSÕES -->
+    <section id="comissoes">
+      <h2>Controle de Comissões</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Status</th>
+            <th>Valor da Comissão</th>
+            <th>Pago?</th>
+          </tr>
+        </thead>
+        <tbody id="tabelaComissoes"></tbody>
+      </table>
+    </section>
+
+    <!-- ESTATÍSTICAS -->
+    <section id="estatisticas">
+      <h2>Estatísticas</h2>
+      <canvas id="graficoConversao" width="400" height="200"></canvas>
+      <canvas id="graficoComissaoMensal" width="400" height="200"></canvas>
+    </section>
+  </main>
+
+  <footer>
+    <p>Desenvolvido por você com GitHub Pages</p>
+  </footer>
+</body>
+</html>
